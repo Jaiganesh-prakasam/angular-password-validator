@@ -2,6 +2,20 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.7.
 
+## About the project
+Password and email validation using reactive forms  
+Following creiterias are fullfilled:  
+* Email of the type someone@something.com, a required field.  
+* Password is a required field.  
+* Password should contain:  
+  * Atleast one number.  
+  * Atleast one uper case.  
+  * Atleast one lower case.  
+  * Atleast one special character.  
+* Password should not  contain:  
+  * any emojis or characters which are not in ASCII.  
+  * mailId in full or part.  
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
