@@ -1,24 +1,31 @@
-<form [formGroup]="form" (ngSubmit)="submit()" >
-  <label>
-    Email ID
-  </label>
-  <input type="text" formControlName="mailId">
-  <br>
-  <div *ngIf="form.controls['mailId'].hasError('invalidEmail')">
-    Enter a valid email Id Ex: someone@something.com
+<div class="alignment">
+  <div class="card">
+    <form [formGroup]="form" (ngSubmit)="submit()" class="container" >
+      <label>
+        Email ID
+      </label>
+      <input type="text" formControlName="mailId">
+      <div *ngIf="form.controls['mailId'].hasError('required')">
+        Mail Id cannot be empty
+      </div>
+      <div *ngIf="form.controls['mailId'].hasError('invalidEmail')">
+        Enter a valid email Id Ex: someone@something.com
+      </div>
+      <br>
+      <label>
+        Password
+      </label>
+      <input type="password" formControlName="password">
+      <br>
+      <div *ngIf="form.controls['password'].hasError('required')"> Password field cannot be empty  </div>
+      <div *ngIf="form.controls['password'].hasError('hasNoNumber')"> Atleast one number  </div>
+      <div *ngIf="form.controls['password'].hasError('hasNoCapitalCase')"> Atleast one Capital case </div>
+      <div *ngIf="form.controls['password'].hasError('hasNoSmallCase')"> Atleast one small case </div>
+      <div *ngIf="form.controls['password'].hasError('hasNoSpecialCharacters')"> Atleast one special character </div>
+      <div *ngIf="form.controls['password'].hasError('otherThanAsci')"> Only common keyboard characters </div>
+      <div *ngIf="form.hasError('passwordHasMailId')"> password should not contain the mail ID </div>
+      <br>
+      <button type="submit">login</button>
+    </form>
   </div>
-  <br>
-  <label>
-    Password
-  </label>
-  <input type="password" formControlName="password">
-  <br>
-  <div *ngIf="form.controls['password'].hasError('hasNoNumber')"> Atleast one number  </div>
-  <div *ngIf="form.controls['password'].hasError('hasNoCapitalCase')"> Atleast one Capital case </div>
-  <div *ngIf="form.controls['password'].hasError('hasNoSmallCase')"> Atleast one small case </div>
-  <div *ngIf="form.controls['password'].hasError('hasNoSpecialCharacters')"> Atleast one special character </div>
-  <div *ngIf="form.controls['password'].hasError('otherThanAsci')"> Only common keyboard characters </div>
-  <div *ngIf="form.hasError('passwordHasMailId')"> password should not contain the mail ID </div>
-  <br>
-  <button type="submit">login</button>
-</form>
+</div>
