@@ -9,7 +9,6 @@ import { ValidatorService } from '../validator.service';
 export class LoginComponent implements OnInit {
   form: FormGroup;
   constructor(public formBuilder: FormBuilder) {
-    console.log('initiated');
     this.form = this.formBuilder.group({
       mailId: ['', [
         Validators.required,
