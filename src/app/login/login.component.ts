@@ -35,6 +35,22 @@ export class LoginComponent implements OnInit {
   }
   submit(): void {
     console.log('is form valid', this.form.valid);
+    console.log('is form valid', this.form);
+    if (this.form.valid) {
+      // Get the snackbar DIV
+      const x = document.getElementById('snackbar');
+      // Add the "show" class to DIV
+      setTimeout(() => x.classList.add('show'), 0);
+      // After 3 seconds, remove the show class from DIV
+      setTimeout(() => x.classList.remove('show'), 3000);
+    } else {
+      // Get the snackbar DIV
+      const x = document.getElementById('snackbarerror');
+      // Add the "show" class to DIV
+      setTimeout(() => x.classList.add('show'), 0);
+      // After 3 seconds, remove the show class from DIV
+      setTimeout(() => x.classList.remove('show'), 3000);
+    }
   }
 
 }

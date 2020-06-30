@@ -18,6 +18,8 @@
       <input type="password" formControlName="password">
       <br>
       <div *ngIf="form.controls['password'].hasError('required')"> Password field cannot be empty  </div>
+      <div *ngIf="form.controls['password'].hasError('minlength')"> Password must contain atleast 8 characters</div>
+      <div *ngIf="form.controls['password'].hasError('maxlength')"> Password must contain atmost 40 characters  </div>
       <div *ngIf="form.controls['password'].hasError('hasNoNumber')"> Atleast one number  </div>
       <div *ngIf="form.controls['password'].hasError('hasNoCapitalCase')"> Atleast one Capital case </div>
       <div *ngIf="form.controls['password'].hasError('hasNoSmallCase')"> Atleast one small case </div>
@@ -25,7 +27,15 @@
       <div *ngIf="form.controls['password'].hasError('otherThanAsci')"> Only common keyboard characters </div>
       <div *ngIf="form.hasError('passwordHasMailId')"> password should not contain the mail ID </div>
       <br>
-      <button type="submit">login</button>
+      <button type="submit" >Validate</button>
     </form>
+    <div style="width: 100%;display: flex; justify-content: center;">
+      <a href="https://github.com/Jaiganesh-prakasam/angular-password-validator">
+        click here for Git hub source
+      </a>
+    </div>
   </div>
 </div>
+<!-- The actual snackbar -->
+<div class="snackbar-success" id="snackbar">That was a successfull validation</div>
+<div class="snackbar-success" id="snackbarerror">That was an unsuccessfull validation</div>
